@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div>
+            <canvas id="graficoBarra"></canvas>
+        </div>
+        <div>
+            <canvas id="graficoLinha"></canvas>
+        </div>
+    </body>  
+    <script>
+       const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho']
+       const temperaturaBarra = [22, 24, 27, 23, 20, 18]
+       const umidadeBarra = [90, 89, 93, 87, 88, 82]
+       const data = {
+        labels: meses,
+        datasets: [{
+            label: 'Temperatura média',
+            backgroundColor: 'red',
+            borderColor: 'red',
+            data: temperaturaBarra
+            },
+            {
+            label: 'Umidade média',
+            backgroundColor: 'blue',
+            borderColor: 'blue',
+            data: umidadeBarra
+            }]
+        }
+       const config = {
+        type: 'bar',
+        data: data,
+        options: {}
+       }
+
+       const horarios = [
+        '12:00', '13:00', '14:00', '15:00', '16:00', '17:00']
+        const temperaturaLinha = [30, 29, 28, 25, 22, 23]
+        const umidadeLinha = [80, 82, 80, 85, 80, 83]
+
+        const data2 = {
+        labels: horarios,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: 'red',
+            borderColor: 'red',
+            data: temperaturaLinha
+            },
+            {
+            label: 'Umidade',
+            backgroundColor: 'blue',
+            borderColor: 'blue',
+            data: umidadeLinha
+            }]
+        }
+       const config2 = {
+        type: 'line',
+        data: data2,
+        options: {}
+       }
+
+       const myChart = new Chart(
+        document.getElementById('graficoBarra'),
+        config
+       )
+       const myChart2 = new Chart(
+        document.getElementById('graficoLinha'),
+        config2
+       )
+    </script>
+</html>
